@@ -1,7 +1,6 @@
-import axios from "axios";
-import React from "react";
-
 export default class App extends React.Component{
+
+  
 
     state = {
         products : [],
@@ -24,18 +23,22 @@ export default class App extends React.Component{
 
     
          const productdata = this.state.products
-         console.log(Object.entries(productdata))
-         const objValue = Object.entries(productdata)
-        return <ul>  
+        return <div>
 
-{objValue}
+          <ul>  
 
-                {objValue.map(product =>
-                   <>
-                    <li>{product.keys} : {product.values}</li>
+
+                {productdata.map(product =>
+                   <>--------------------------------------------------------------------------------------------------------------------------------------
+                    <li>Id: {product.id}</li>
+                    <li>Title: {product.title}</li>
+                    <li>Category: {product.category}</li>
+                    <li>Description{product.description}</li>
+                    <li>Price: {product.price}</li>
                    </>
                    )}
                  
         </ul>
+        </div>
    }
 }

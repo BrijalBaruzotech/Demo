@@ -1,38 +1,51 @@
-import { useEffect, useState } from "react"
-import axios from 'axios'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Products(){
+function Products() {
+  const [users, setProduct] = useState([]);
+  const [isPending, setPending] = useState(true);
 
-    const [product, setProduct] = useState([])
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get("https://61eff057732d93001778e6c0.mockapi.io/Users")
+        .then((res) => {
+          setProduct(res.data);
+          setPending(false);
+        });
+    }, 1000);
+  }, []);
 
-    useEffect( () => {
+  return (
+    <div>
 
-        axios.get('https://fakestoreapi.com/products')
-            .then(res => {
-                console.log(res)
-                setProduct(res.data)
-            })
-            .catch(err =>{
-                console.log(err)
-            })
-        }, []
-    )
-
-    return (
-        <div>
-
-            <ul>
-            {
-                product.map(prodct => <>
-                    <li>Id: {prodct.id}</li>
-                    <li>Title: {prodct.title}</li>
-                    <li>Category: {prodct.category}</li>
-                    <li>Description{prodct.description}</li>
-                    <li>Price: {prodct.price}</li>
-                   </>)
-            }
-            </ul>
-        </div>
-    )
+      {isPending === true ? (
+        "loading"
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => {
+              return (
+                <tr>
+                  <td className="th">{user.id}</td>
+                  <td>
+                    <Link to={`/user/${user.id}`}>{user.name}</Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
 }
+
 export default Products;
