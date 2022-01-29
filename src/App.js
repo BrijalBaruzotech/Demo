@@ -7,18 +7,14 @@ import Home from "./Home";
 function App() {
   return (
     <div>
-
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home}/>    
-          <Route exact path='/users' component={Products}/>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/users" component={Products} />
           <Route exact path="/user/:id" component={User1} />
-          <Route exact path='/createUser' component={Creat}/>
-          
+          <Route exact path="/createUser" component={Creat} />
         </Switch>
       </BrowserRouter>
-
-      
     </div>
   );
 }

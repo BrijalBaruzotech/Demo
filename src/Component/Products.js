@@ -19,7 +19,6 @@ function Products() {
 
   return (
     <div>
-
       {isPending === true ? (
         "loading"
       ) : (
