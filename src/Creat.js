@@ -16,15 +16,16 @@ function Creat() {
       body: JSON.stringify(data),
     }).then(() => {
       console.log("User Added!!");
-      history.push("/Products");
+      history.push("/users");
     });
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label>UserID: </label>
         <input
-          type="text"
+          type="number"
           required
           value={id}
           onChange={(e) => setId(e.target.value)}

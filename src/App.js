@@ -3,6 +3,7 @@ import User1 from "./Component/User1";
 import Products from "./Component/Products";
 import Creat from "./Creat";
 import Home from "./Home";
+import UpdateUser from "./UpdateUser";
 
 function App() {
   return (
