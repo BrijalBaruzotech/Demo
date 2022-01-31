@@ -3,18 +3,19 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-function Products() {
+function UserList() {
   const [users, setProduct] = useState([]);
   const [isPending, setPending] = useState(true);
-  const history =useHistory();
+  const history = useHistory();
 
-  const userDelete = (id) =>{
-    axios.delete(`https://61eff057732d93001778e6c0.mockapi.io/Users/${id}`)
-    .then(() => {
-      history.push('/')
-      console.log("User Deleted!!!!")
-    })
-  }
+  const userDelete = (id) => {
+    axios
+      .delete(`https://61eff057732d93001778e6c0.mockapi.io/Users/${id}`)
+      .then(() => {
+        history.push("/");
+        console.log("User Deleted!!!!");
+      });
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,8 +48,14 @@ function Products() {
                   <td>
                     <Link to={`/user/${user.id}`}>{user.name}</Link>
                   </td>
-                  <td><button onClick={() => userDelete(user.id)}>Delete</button></td>
-                  <td><Link to={`/user/${user.id}`}><button>Update</button></Link></td>
+                  <td>
+                    <button onClick={() => userDelete(user.id)}>Delete</button>
+                  </td>
+                  <td>
+                    <Link to={`/updateuser/${user.id}`}>
+                      <button>Update</button>
+                    </Link>
+                  </td>
                 </tr>
               );
             })}
@@ -59,4 +66,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default UserList;

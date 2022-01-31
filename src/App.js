@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import User1 from "./Component/User1";
-import Products from "./Component/Products";
-import Creat from "./Creat";
+import UserDetails from "./Component/UserDetails";
+import UserList from "./Component/UserList";
+import CreateUser from "./CreateUser";
 import Home from "./Home";
 import UpdateUser from "./UpdateUser";
 
@@ -11,9 +11,10 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/users" component={Products} />
-          <Route exact path="/user/:id" component={User1} />
-          <Route exact path="/createUser" component={Creat} />
+          <Route exact path="/users" component={UserList} />
+          <Route exact path="/user/:id" component={UserDetails} />
+          <Route exact path="/updateuser/:id" component={UpdateUser} />
+          <Route exact path="/createUser" component={CreateUser} />
         </Switch>
       </BrowserRouter>
     </div>

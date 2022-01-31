@@ -13,9 +13,6 @@ function Home() {
         <p>
           <Link to="/createUser">Create New User</Link>
         </p>
-        <p>
-          <Link to="updateUser">Update User</Link>
-        </p>
       </div>
     </div>
   );
