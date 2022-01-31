@@ -10,7 +10,7 @@ function UserList() {
     axios
       .delete(`https://61eff057732d93001778e6c0.mockapi.io/Users/${id}`)
       .then(() => {
-        window.location.reload();
+        window.location.reload(false);
         console.log("User Deleted!!!!");
       });
   };
