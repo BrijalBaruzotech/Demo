@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import './index.css'
 
 function Home() {
   return (
     <div>
       <p>Wel Come to demo Project!!!!!</p>
 
-      <div>
-        <p>
+      <div >
+        <p >
           <Link to="/users">User List</Link>
         </p>
         <p>Create New User</p>
