@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function UserList() {
   const [users, setProduct] = useState([]);
-  const [isPending, setPending] = useState(true);
+  const [isPending, setPending] = useState(false);
 
   const userDelete = (id) => {
     axios
