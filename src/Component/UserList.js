@@ -6,13 +6,12 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function UserList() {
   const [users, setProduct] = useState([]);
   const [isPending, setPending] = useState(true);
-  const history = useHistory();
 
   const userDelete = (id) => {
     axios
       .delete(`https://61eff057732d93001778e6c0.mockapi.io/Users/${id}`)
       .then(() => {
-        history.push("/");
+        window.location.reload(true);
         console.log("User Deleted!!!!");
       });
   };
