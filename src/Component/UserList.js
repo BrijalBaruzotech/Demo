@@ -1,26 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserList() {
   const [users, setProduct] = useState([]);
   const [isPending, setPending] = useState();
-  const history = useHistory();
+   //const history = useHistory();
 
-  const userDelete = (id) => {
-    axios
-      .delete(`https://61eff057732d93001778e6c0.mockapi.io/Users/${id}`)
-      .then(() => {
-        window.location.reload(false);
-        history.push('/users')
-        history.go(0);
-
-        console.log("User Deleted!!!!");
-      });
-  };
-
-  useEffect(() => {
+   function fetchData() {
     setTimeout(() => {
       axios
         .get("https://61eff057732d93001778e6c0.mockapi.io/Users")
@@ -29,6 +17,21 @@ function UserList() {
           setPending(false);
         });
     }, 1000);
+   }
+
+  const userDelete = (id) => {
+    axios
+      .delete(`https://61eff057732d93001778e6c0.mockapi.io/Users/${id}`)
+      .then(() => {
+        fetchData();
+        console.log("User Deleted!!!!");
+      });
+  };
+
+  useEffect(() => {
+
+    fetchData();
+    
   }, []);
 
   return (
@@ -70,4 +73,3 @@ function UserList() {
 }
 
 export default UserList;
-
