@@ -14,6 +14,8 @@ function UserList() {
       .then(() => {
         window.location.reload(false);
         history.push('/users')
+        history.go(0);
+
         console.log("User Deleted!!!!");
       });
   };
