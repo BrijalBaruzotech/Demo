@@ -1,13 +1,10 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 
 const UserDetails = () => {
   const [users, setProduct] = useState([]);
-  const [newName, setname] = useState([]);
   const [isPending, setPending] = useState(true);
-  const history = useHistory();
 
   const { id } = useParams();
 
